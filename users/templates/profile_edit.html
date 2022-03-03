@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Update Profile{% endblock %}
+
+{% block content %}
+    
+    
+    <div  class="row">
+        <div class="col-4" style="margin: auto; background-color: bisque; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
+            <h1> Update Profile</h1>
+            <form method="post" class="forms" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ update_form | crispy }}
+                <button type="submit" class="btn btn-outline-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+   
+
+{% endblock %}

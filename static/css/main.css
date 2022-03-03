@@ -1,0 +1,95 @@
+.containers{
+    width: 100%;
+    margin: auto 0;
+}
+.small_profile_image{
+    width:120px;
+    height:150px;
+    border-radius: 50%;
+}
+.profile_image{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+}
+
+
+.book-section{
+    display: inline-block;
+    
+    text-align: center;
+}
+.book-images{
+    margin-top: 20px;
+}
+
+.book-image{
+    width:200px;
+    height:200px;
+
+}
+.book-text{
+    width: 100%;
+    margin-top: 15px;
+    padding: 20px;
+    line-height: 27px;
+    background-color: #F7F7F7;
+    color: 343334;
+}
+
+.cover-picture{
+    width: 200px;
+    height: 200px;
+}
+.books-picture{
+    width: 80%;
+    height: 40%;
+    margin-left: 4rem;
+}
+
+/* Home page styles  */
+
+.posts-content{
+    margin-top:20px;    
+}
+.ui-w-40 {
+    width: 40px !important;
+    height: auto;
+}
+.default-style .ui-bordered {
+    border: 1px solid rgba(24,28,33,0.06);
+}
+.ui-bg-cover {
+    background-color: transparent;
+    background-position: center center;
+    background-size: cover;
+}
+.ui-rect {
+    padding-top: 50% !important;
+}
+.ui-rect, .ui-rect-30, .ui-rect-60, .ui-rect-67, .ui-rect-75 {
+    position: relative !important;
+    display: block !important;
+    padding-top: 100% !important;
+    width: 100% !important;
+}
+.d-flex, .d-inline-flex, .media, .media>:not(.media-body), .jumbotron, .card {
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+}
+.bg-dark {
+    background-color: rgba(24,28,33,0.9) !important;
+}
+.card-footer, .card hr {
+    border-color: rgba(24,28,33,0.06);
+}
+.ui-rect-content {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+}
+.default-style .ui-bordered {
+    border: 1px solid rgba(24,28,33,0.06);
+}

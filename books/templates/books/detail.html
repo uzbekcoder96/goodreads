@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Detail Book{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <section class="book-section mb-4">
+        <div class="book-images ">
+            <img src="{{ book.book_pcture.url }}" class="book-image" alt="cover picture">
+        </div>
+        
+        <div class="book-text ">
+            <h3>{{ book.title }}</h3>
+            <span class="fst-italic"> Authored by
+                {% for book_author in book.bookauthor_set.all %}
+                    {% if forloop.last %}
+                        {{book_author.author.full_name}}
+                    {% else %}
+                        {{book_author.author.full_name}},
+                    {% endif %}
+                {% endfor %}
+            </span>
+            <p>{{ book.descriptions }}</p>
+        </div>
+    </section>
+    <div class="row">
+        <div class="col-6">
+            <form method="post" action="{% url 'books:review' book.id %}">
+                {% csrf_token %}
+                {{review_form | crispy}}
+                <button class="btn btn-outline-success mb-5">Add</button>
+            </form>
+            
+        </div>
+    </div>
+
+
+    {% if book.bookreview_set.exists %}
+        <h4>Review</h4> <hr>
+
+        {% for review in book.bookreview_set.all %}
+            <div class="row mb-3" style="border: 1px solid #000; padding: 0.7rem;">
+                <div class="col-2">
+                    <img class="small_profile_image"  src="{{review.user.profile_picture.url}}" alt=""> 
+                </div> 
+                <div class="col-8">
+                    <p><b>{{review.user.username}}</b>  rated it <mark>{{ review.stars_given }}</mark>stars {% if review.user == request.user %}
+                        <a href="{% url 'books:edit-review' book.id review.id %}"><i class="bi bi-pen"></i></a>
+                        <a href="{% url 'books:delete-review-confirm' book.id review.id %}"><i class="bi bi-trash"></i></a> 
+                    {% endif %}</p>
+                    
+                    <p class="font-monospace"> {{review.comment}} </p> 
+                    <p class="fw-lighter"> {{review.created_at}} </p>
+                </div>
+            </div>
+        
+        {% endfor %}
+    {% endif %}
+{% endblock %}  
